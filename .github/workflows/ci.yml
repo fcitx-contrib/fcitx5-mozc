@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     container: archlinux:latest
     steps:
+      - name: Install dependencies
+        run: pacman -Syu --noconfirm base-devel cmake ninja extra-cmake-modules libuv git
+
       - uses: actions/checkout@v4
         with:
           path: fcitx5-mozc
@@ -24,15 +27,12 @@ jobs:
       - name: Patch
         run: |
           cd fcitx5-mozc
-          pushd mozc/third_party/protobuf
+          pushd mozc/src/third_party/protobuf
           git apply ../../../../patches/protobuf.patch
           popd
           cp patches/mozc-addon.conf src/unix/fcitx5
           mkdir -p build/data_manager/oss
-          wget -P build/data_manager/oss https://github.com/fcitx-contrib/fcitx5-mozc/releases/download/latest/mozc_data.inc
-
-      - name: Install dependencies
-        run: pacman -Syu --noconfirm base-devel clang cmake ninja extra-cmake-modules libuv
+          curl -LO --output-dir build/data_manager/oss https://github.com/fcitx-contrib/fcitx5-mozc/releases/download/latest/mozc_data.inc
 
       - uses: actions/checkout@v4
         with:
