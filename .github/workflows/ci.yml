@@ -11,12 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     container: archlinux:latest
     steps:
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.13.1'
-
       - name: Install dependencies
-        run: pacman -Syu --noconfirm base-devel cmake ninja extra-cmake-modules fmt libuv git
+        run: pacman -Syu --noconfirm base-devel cmake ninja extra-cmake-modules fmt libuv git python
 
       - uses: actions/checkout@v4
         with:
