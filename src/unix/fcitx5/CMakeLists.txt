@@ -25,6 +25,7 @@ target_include_directories(mozc PRIVATE
 
 if (LINUX)
     target_include_directories(mozc PRIVATE
+        "${CMAKE_INSTALL_PREFIX}/include"
         "${CMAKE_INSTALL_PREFIX}/include/Fcitx5/Module"
     )
 elseif (APPLE AND NOT IOS)
