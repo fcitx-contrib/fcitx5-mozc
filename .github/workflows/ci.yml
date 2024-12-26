@@ -1,0 +1,63 @@
+name: ci
+
+on:
+  push:
+    - master
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    needs: lint
+    container: archlinux:latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: fcitx5-mozc
+
+      - uses: actions/checkout@v4
+        with:
+          repository: google/mozc
+          path: fcitx5-mozc/mozc
+          submodules: true
+
+      - name: Patch
+        run: |
+          cd fcitx5-mozc
+          pushd mozc/third_party/protobuf
+          git apply ../../../../patches/protobuf.patch
+          popd
+          cp patches/mozc-addon.conf src/unix/fcitx5
+          mkdir -p build/data_manager/oss
+          wget -P build/data_manager/oss https://github.com/fcitx-contrib/fcitx5-mozc/releases/download/latest/mozc_data.inc
+
+      - name: Install dependencies
+        run: pacman -Syu --noconfirm base-devel clang cmake ninja extra-cmake-modules libuv
+
+      - uses: actions/checkout@v4
+        with:
+          repository: fcitx/fcitx5
+          path: fcitx5
+
+      - name: Cache fcitx5 data files
+        uses: actions/cache@v4
+        with:
+          path: 'fcitx5/**/*.tar.*'
+          key: ${{ runner.os }}-${{ hashFiles('fcitx5/src/modules/spell/CMakeLists.txt')}}
+
+      - name: Build and Install fcitx5
+        uses: fcitx/github-actions@cmake
+        with:
+          path: fcitx5
+          cmake-option: >-
+            -DENABLE_KEYBOARD=Off -DENABLE_X11=Off -DENABLE_WAYLAND=Off -DENABLE_ENCHANT=Off
+            -DENABLE_DBUS=Off -DENABLE_SERVER=Off -DENABLE_EMOJI=Off -DUSE_SYSTEMD=Off -DENABLE_TEST=OFF -DENABLE_TESTING_ADDONS=OFF
+
+      - name: Build and Install fcitx5-mozc
+        uses: fcitx/github-actions@cmake
+        with:
+          path: fcitx5-mozc
+
+      - name: Setup tmate session
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3

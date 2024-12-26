@@ -9,6 +9,7 @@ find_package(Fcitx5Core 5.1.12 REQUIRED)
 find_package(Fcitx5Module REQUIRED COMPONENTS Clipboard)
 
 include("${FCITX_INSTALL_CMAKECONFIG_DIR}/Fcitx5Utils/Fcitx5CompilerSettings.cmake")
+add_compile_options(-fPIC)
 
 set(MOZC_SRC_DIR "${PROJECT_SOURCE_DIR}/mozc/src")
 

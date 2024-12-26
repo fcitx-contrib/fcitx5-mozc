@@ -23,7 +23,11 @@ target_include_directories(mozc PRIVATE
     "${MOZC_SRC_DIR}/third_party/abseil-cpp"
 )
 
-if (APPLE AND NOT IOS)
+if (LINUX)
+    target_include_directories(mozc PRIVATE
+        "${CMAKE_INSTALL_PREFIX}/include/Fcitx5/Module"
+    )
+elseif (APPLE AND NOT IOS)
     target_include_directories(mozc PRIVATE
         "/Library/Input Methods/Fcitx5.app/Contents/include"
         "/Library/Input Methods/Fcitx5.app/Contents/include/Fcitx5/Module"
@@ -33,8 +37,8 @@ endif()
 target_link_libraries(mozc
     Fcitx5::Core
     libprotoc
-    absl::flags_parse
     mozc-static
+    absl::flags_parse
 )
 
 install(TARGETS mozc DESTINATION "${CMAKE_INSTALL_LIBDIR}/fcitx5")
