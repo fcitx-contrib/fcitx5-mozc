@@ -12,7 +12,7 @@ jobs:
     container: archlinux:latest
     steps:
       - name: Install dependencies
-        run: pacman -Syu --noconfirm base-devel cmake ninja extra-cmake-modules libuv git
+        run: pacman -Syu --noconfirm base-devel cmake ninja extra-cmake-modules fmt libuv git
 
       - uses: actions/checkout@v4
         with:
