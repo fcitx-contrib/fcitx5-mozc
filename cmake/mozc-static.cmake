@@ -1,4 +1,5 @@
 add_library(mozc-static STATIC
+    $<TARGET_OBJECTS:mozc_proto>
     $<TARGET_OBJECTS:mozc_base>
     $<TARGET_OBJECTS:mozc_composer>
     $<TARGET_OBJECTS:mozc_config>

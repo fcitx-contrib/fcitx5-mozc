@@ -20,11 +20,10 @@ if (NOT DEFINED MOZC_TARGET)
     set(protobuf_BUILD_LIBPROTOC ON)
     add_subdirectory("${MOZC_SRC_DIR}/third_party/protobuf")
 
-    include(cmake/protobuf.cmake)
-
     # Mozc requires char to be unsigned, as it's used as array index.
     add_compile_options(-funsigned-char)
 
+    include(cmake/protobuf.cmake)
     include(cmake/base.cmake)
     include(cmake/composer.cmake)
     include(cmake/config.cmake)
@@ -40,7 +39,7 @@ if (NOT DEFINED MOZC_TARGET)
     include(cmake/usage_stats.cmake)
 
     include(cmake/mozc-static.cmake)
-    set(MOZC_TARGET libprotoc mozc-static absl::flags_parse)
+    set(MOZC_TARGET libprotobuf mozc-static absl::flags_parse)
 
     # Force data generation before binary build
     add_dependencies(gen

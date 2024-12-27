@@ -10,10 +10,7 @@ set(FCITX5_MOZC_SRCS
     surrounding_text_util.cc
 )
 
-add_fcitx5_addon(mozc
-    ${FCITX5_MOZC_SRCS}
-    ${GENERATED_PROTO_SRCS}
-)
+add_fcitx5_addon(mozc ${FCITX5_MOZC_SRCS})
 
 target_include_directories(mozc PRIVATE
     "${PROJECT_SOURCE_DIR}/src"
