@@ -16,7 +16,7 @@ set(MOZC_USAGE_STATS_SRCS
 )
 list(TRANSFORM MOZC_USAGE_STATS_SRCS PREPEND "${MOZC_SRC_DIR}/usage_stats/")
 
-add_library(mozc_usage_stats
+add_library(mozc_usage_stats OBJECT
     ${MOZC_USAGE_STATS_SRCS}
     "${PROJECT_BINARY_DIR}/usage_stats/usage_stats.pb.cc"
 )
