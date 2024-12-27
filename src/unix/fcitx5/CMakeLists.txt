@@ -37,9 +37,7 @@ endif()
 
 target_link_libraries(mozc
     Fcitx5::Core
-    libprotoc
-    mozc-static
-    absl::flags_parse
+    ${MOZC_TARGET}
 )
 
 install(TARGETS mozc DESTINATION "${CMAKE_INSTALL_LIBDIR}/fcitx5")
