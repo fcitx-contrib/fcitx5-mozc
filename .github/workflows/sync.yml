@@ -29,7 +29,3 @@ jobs:
           git checkout -b master target/master
           git merge fcitx -m "sync fcitx/mozc"
           git push target master
-
-      - name: Setup tmate session
-        if: ${{ failure() }}
-        uses: mxschmitt/action-tmate@v3
