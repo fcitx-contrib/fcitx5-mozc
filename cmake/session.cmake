@@ -10,7 +10,6 @@ set(MOZC_SESSION_SRCS
     session_handler.cc
     session_handler_tool.cc
     session_observer_handler.cc
-    session_server.cc
     session_usage_observer.cc
     session_usage_stats_util.cc
 )
