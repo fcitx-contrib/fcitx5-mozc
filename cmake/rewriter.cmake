@@ -16,9 +16,6 @@ set(MOZC_REWRITER_SRCS
     environmental_filter_rewriter.cc
     focus_candidate_rewriter.cc
     fortune_rewriter.cc
-    gen_emoticon_rewriter_data.cc
-    gen_existence_data.cc
-    gen_single_kanji_noun_prefix_data.cc
     ivs_variants_rewriter.cc
     language_aware_rewriter.cc
     number_compound_util.cc

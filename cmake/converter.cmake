@@ -2,7 +2,6 @@ set(MOZC_CONVERTER_SRCS
     candidate_filter.cc
     connector.cc
     converter.cc
-    gen_segmenter_bitarray.cc
     history_reconstructor.cc
     immutable_converter.cc
     key_corrector.cc
