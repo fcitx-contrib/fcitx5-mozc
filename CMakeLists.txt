@@ -51,6 +51,7 @@ if (NOT DEFINED MOZC_TARGET)
         gen_version_def
     )
 
+    add_dependencies(mozc_proto gen)
     add_dependencies(mozc_base gen)
     add_dependencies(mozc_composer gen)
     add_dependencies(mozc_config gen)
