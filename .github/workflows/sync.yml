@@ -15,7 +15,7 @@ jobs:
         run: pip install git-filter-repo
 
       - name: Clone fcitx/mozc
-        run: git clone https://github.com/fcitx/mozc
+        run: git clone --single-branch https://github.com/fcitx/mozc
 
       - name: Sync
         run: |
@@ -25,6 +25,7 @@ jobs:
           git config user.name "Qijia Liu"
           git config user.email liumeo@pku.edu.cn
           git push target fcitx
+          git fetch target master
           git checkout -b master target/master
           git merge fcitx -m "sync fcitx/mozc"
           git push target master
