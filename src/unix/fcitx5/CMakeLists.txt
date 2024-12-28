@@ -38,7 +38,7 @@ target_link_libraries(mozc
 )
 
 install(TARGETS mozc DESTINATION "${CMAKE_INSTALL_LIBDIR}/fcitx5")
-install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/mozc.conf" DESTINATION "${CMAKE_INSTALL_DATADIR}/fcitx5/inputmethod" COMPONENT config)
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/mozc.conf" DESTINATION "${FCITX_INSTALL_PKGDATADIR}/inputmethod" COMPONENT config)
 configure_file("${PROJECT_SOURCE_DIR}/patches/mozc-addon.conf.in" mozc-addon.conf)
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/mozc-addon.conf" RENAME mozc.conf DESTINATION "${FCITX_INSTALL_PKGDATADIR}/addon" COMPONENT config)
 
