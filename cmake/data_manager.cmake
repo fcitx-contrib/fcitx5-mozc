@@ -8,10 +8,7 @@ set(MOZC_DATA_MANAGER_SRCS
 )
 list(TRANSFORM MOZC_DATA_MANAGER_SRCS PREPEND "${MOZC_SRC_DIR}/data_manager/")
 
-add_library(mozc_data_manager OBJECT
-    ${MOZC_DATA_MANAGER_SRCS}
-    "${PROJECT_BINARY_DIR}/data_manager/dataset.pb.cc"
-)
+add_library(mozc_data_manager OBJECT ${MOZC_DATA_MANAGER_SRCS})
 
 target_compile_definitions(mozc_data_manager PRIVATE -DMOZC_DATASET_MAGIC_NUMBER_LENGTH=7)
 
