@@ -19,9 +19,14 @@ jobs:
 
       - name: Sync
         run: |
+          cd mozc
           git filter-repo --path src/unix/fcitx5 --force
           git remote add target https://${{ secrets.PAT }}@github.com/fcitx-contrib/fcitx5-mozc
           git push target fcitx
           git checkout -b master target/master
           git merge fcitx -m "sync fcitx/mozc"
           git push target master
+
+      - name: Setup tmate session
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
