@@ -36,7 +36,9 @@ foreach(PROTO_SRC ${PROTO_SRCS})
         COMMENT "Generating ${PROTO_SRC}.pb.cc and ${PROTO_SRC}.pb.h"
     )
     add_custom_target(${target_name} DEPENDS "${proto_cc}" "${proto_h}")
-    add_dependencies(${target_name} protoc)
+    if (TARGET protoc)
+        add_dependencies(${target_name} protoc)
+    endif()
     add_dependencies(gen ${target_name})
 endforeach()
 

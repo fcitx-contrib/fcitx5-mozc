@@ -125,6 +125,10 @@ if (APPLE)
     target_sources(mozc_base PRIVATE
         "${PROJECT_SOURCE_DIR}/src/mac_util.cc"
     )
+elseif (EMSCRIPTEN)
+    target_include_directories(mozc_base PRIVATE
+        "${PROJECT_SOURCE_DIR}/src/fts"
+    )
 endif()
 
 target_include_directories(mozc_base PRIVATE
