@@ -1,0 +1,27 @@
+name: sync
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install git filter-repo
+        run: pip install git-filter-repo
+
+      - name: Clone fcitx/mozc
+        run: git clone https://github.com/fcitx/mozc
+
+      - name: Sync
+        run: |
+          git filter-repo --path src/unix/fcitx5 --force
+          git remote add target https://${{ secrets.PAT }}@github.com/fcitx-contrib/fcitx5-mozc
+          git push target fcitx
+          git checkout -b master target/master
+          git merge fcitx -m "sync fcitx/mozc"
+          git push target master
