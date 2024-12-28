@@ -21,7 +21,7 @@ jobs:
         run: |
           cd mozc
           git filter-repo --path src/unix/fcitx5 --force
-          git remote add target https://${{ secrets.PAT }}@github.com/fcitx-contrib/fcitx5-mozc
+          git remote add target https://${{ secrets.EAGLEOFLQJ_PAT }}@github.com/fcitx-contrib/fcitx5-mozc
           git config user.name "Qijia Liu"
           git config user.email liumeo@pku.edu.cn
           git push target fcitx
