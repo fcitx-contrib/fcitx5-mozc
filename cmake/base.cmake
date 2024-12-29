@@ -112,6 +112,6 @@ list(APPEND MOZC_BASE_SRCS
 
 if (APPLE)
     list(APPEND MOZC_BASE_SRCS
-        "${PROJECT_SOURCE_DIR}/src/mac_util.cc"
+        "${PROJECT_SOURCE_DIR}/src/mac_util.mm"
     )
 endif()

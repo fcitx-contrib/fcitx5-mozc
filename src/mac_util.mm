@@ -1,5 +1,8 @@
 #include "base/mac/mac_util.h"
 
+#import <Foundation/Foundation.h>
+#include <TargetConditionals.h>
+
 #include "base/environ.h"
 #include "base/file_util.h"
 
@@ -28,4 +31,24 @@ std::string MacUtil::GetOSVersionString() { return ""; }
 // Original implementation says return empty string if failed instead of aborts
 // program, so it's acceptable.
 std::string MacUtil::GetSerialNumber() { return ""; }
-}  // namespace mozc
+
+// Below are specific to iOS copied from mozc.
+#if TARGET_OS_IPHONE
+std::string
+GetSearchPathForDirectoriesInDomains(NSSearchPathDirectory directory) {
+  std::string dir;
+  @autoreleasepool {
+    NSArray *paths =
+        NSSearchPathForDirectoriesInDomains(directory, NSUserDomainMask, YES);
+    if ([paths count] > 0) {
+      dir.assign([[paths objectAtIndex:0] fileSystemRepresentation]);
+    }
+  }
+  return dir;
+}
+
+std::string MacUtil::GetCachesDirectory() {
+  return GetSearchPathForDirectoriesInDomains(NSCachesDirectory);
+}
+#endif
+} // namespace mozc
