@@ -8,7 +8,6 @@ set(MOZC_SESSION_SRCS
     session.cc
     session_converter.cc
     session_handler.cc
-    session_handler_tool.cc
     session_observer_handler.cc
     session_usage_observer.cc
     session_usage_stats_util.cc

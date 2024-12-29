@@ -8,8 +8,6 @@ set(MOZC_CONVERTER_SRCS
     lattice.cc
     nbest_generator.cc
     node_list_builder.cc
-    pos_id_printer.cc
-    quality_regression_util.cc
     reverse_converter.cc
     segmenter.cc
     segments.cc

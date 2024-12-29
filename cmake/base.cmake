@@ -74,27 +74,20 @@ add_custom_target(gen_version_def DEPENDS "${version_def_h}")
 # Build mozc_base
 set(MOZC_BASE_SRCS
     clock.cc
-    clock_mock.cc
     config_file_stream.cc
     container/serialized_string_array.cc
-    cpu_stats.cc
-    crash_report_handler.cc
     encryptor.cc
     environ.cc
-    file/recursive.cc
-    file/temp_dir.cc
     file_stream.cc
     file_util.cc
     hash.cc
     init_mozc.cc
     log_file.cc
     mmap.cc
-    multifile.cc
     number_util.cc
     password_manager.cc
     process_mutex.cc
     random.cc
-    run_level.cc
     singleton.cc
     stopwatch.cc
     strings/internal/double_array.cc
@@ -106,8 +99,6 @@ set(MOZC_BASE_SRCS
     text_normalizer.cc
     unverified_aes256.cc
     unverified_sha1.cc
-    update_util.cc
-    url.cc
     util.cc
     version.cc
     vlog.cc

@@ -1,7 +1,6 @@
 set(MOZC_REWRITER_SRCS
     a11y_description_rewriter.cc
     calculator/calculator.cc
-    calculator/calculator_mock.cc
     calculator_rewriter.cc
     collocation_rewriter.cc
     collocation_util.cc
@@ -9,7 +8,6 @@ set(MOZC_REWRITER_SRCS
     correction_rewriter.cc
     date_rewriter.cc
     dice_rewriter.cc
-    dictionary_generator.cc
     emoji_rewriter.cc
     emoticon_rewriter.cc
     english_variants_rewriter.cc

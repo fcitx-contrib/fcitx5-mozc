@@ -1,12 +1,9 @@
 set(MOZC_STORAGE_SRCS
     encrypted_string_storage.cc
     existence_filter.cc
-    louds/bit_stream.cc
     louds/bit_vector_based_array.cc
-    louds/bit_vector_based_array_builder.cc
     louds/louds.cc
     louds/louds_trie.cc
-    louds/louds_trie_builder.cc
     louds/simple_succinct_bit_vector_index.cc
     lru_storage.cc
     registry.cc

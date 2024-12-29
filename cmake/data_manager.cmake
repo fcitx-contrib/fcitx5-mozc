@@ -1,8 +1,6 @@
 set(MOZC_DATA_MANAGER_SRCS
-    connection_file_reader.cc
     data_manager.cc
     dataset_reader.cc
-    dataset_writer.cc
     oss/oss_data_manager.cc
     serialized_dictionary.cc
 )
