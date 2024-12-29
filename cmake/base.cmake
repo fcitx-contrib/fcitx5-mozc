@@ -107,7 +107,6 @@ list(TRANSFORM MOZC_BASE_SRCS PREPEND "${MOZC_SRC_DIR}/base/")
 
 list(APPEND MOZC_BASE_SRCS
     "${PROJECT_SOURCE_DIR}/src/process.cc"
-    "${PROJECT_SOURCE_DIR}/src/log.cc"
 )
 
 if (APPLE)

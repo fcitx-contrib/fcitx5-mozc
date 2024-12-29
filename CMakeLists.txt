@@ -36,7 +36,12 @@ if (NOT DEFINED MOZC_TARGET)
     include(cmake/usage_stats.cmake)
 
     include(cmake/mozc-static.cmake)
-    set(MOZC_TARGET libprotobuf mozc-static absl::flags_parse)
+    set(MOZC_TARGET
+        libprotobuf
+        mozc-static
+        absl::flags_parse
+        absl::log_flags
+    )
 
     # Force data generation before binary build
     add_dependencies(gen
