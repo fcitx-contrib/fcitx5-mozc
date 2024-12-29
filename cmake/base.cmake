@@ -75,7 +75,6 @@ add_custom_target(gen_version_def DEPENDS "${version_def_h}")
 set(MOZC_BASE_SRCS
     clock.cc
     clock_mock.cc
-    codegen_bytearray_stream.cc
     config_file_stream.cc
     container/serialized_string_array.cc
     cpu_stats.cc
