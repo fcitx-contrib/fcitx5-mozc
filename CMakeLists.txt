@@ -52,7 +52,6 @@ if (NOT DEFINED MOZC_TARGET)
     )
 
     add_dependencies(mozc_proto gen)
-    add_dependencies(mozc_base gen)
     add_dependencies(mozc_composer gen)
     add_dependencies(mozc_config gen)
     add_dependencies(mozc_converter gen)

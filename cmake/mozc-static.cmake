@@ -1,6 +1,6 @@
 add_library(mozc-static STATIC
     $<TARGET_OBJECTS:mozc_proto>
-    $<TARGET_OBJECTS:mozc_base>
+    ${MOZC_BASE_SRCS}
     $<TARGET_OBJECTS:mozc_composer>
     $<TARGET_OBJECTS:mozc_config>
     $<TARGET_OBJECTS:mozc_converter>
@@ -13,4 +13,10 @@ add_library(mozc-static STATIC
     $<TARGET_OBJECTS:mozc_storage>
     $<TARGET_OBJECTS:mozc_transliteration>
     $<TARGET_OBJECTS:mozc_usage_stats>
+)
+
+target_include_directories(mozc-static PRIVATE
+    "${MOZC_SRC_DIR}"
+    "${MOZC_SRC_DIR}/third_party/abseil-cpp"
+    "${PROJECT_BINARY_DIR}"
 )

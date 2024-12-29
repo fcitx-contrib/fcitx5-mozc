@@ -105,24 +105,13 @@ set(MOZC_BASE_SRCS
 )
 list(TRANSFORM MOZC_BASE_SRCS PREPEND "${MOZC_SRC_DIR}/base/")
 
-add_library(mozc_base OBJECT
-    ${MOZC_BASE_SRCS}
+list(APPEND MOZC_BASE_SRCS
     "${PROJECT_SOURCE_DIR}/src/process.cc"
     "${PROJECT_SOURCE_DIR}/src/log.cc"
 )
 
 if (APPLE)
-    target_sources(mozc_base PRIVATE
+    list(APPEND MOZC_BASE_SRCS
         "${PROJECT_SOURCE_DIR}/src/mac_util.cc"
     )
-elseif (EMSCRIPTEN)
-    target_include_directories(mozc_base PRIVATE
-        "${PROJECT_SOURCE_DIR}/src/fts"
-    )
 endif()
-
-target_include_directories(mozc_base PRIVATE
-    "${MOZC_SRC_DIR}"
-    "${MOZC_SRC_DIR}/third_party/abseil-cpp"
-    "${PROJECT_BINARY_DIR}"
-)
