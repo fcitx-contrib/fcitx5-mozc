@@ -13,12 +13,3 @@ set(MOZC_CONVERTER_SRCS
     segments.cc
 )
 list(TRANSFORM MOZC_CONVERTER_SRCS PREPEND "${MOZC_SRC_DIR}/converter/")
-
-add_library(mozc_converter OBJECT ${MOZC_CONVERTER_SRCS})
-
-target_include_directories(mozc_converter PRIVATE
-    "${MOZC_SRC_DIR}"
-    "${MOZC_SRC_DIR}/third_party/abseil-cpp"
-    "${MOZC_SRC_DIR}/third_party/protobuf/src"
-    "${PROJECT_BINARY_DIR}"
-)

@@ -10,10 +10,3 @@ set(MOZC_STORAGE_SRCS
     tiny_storage.cc
 )
 list(TRANSFORM MOZC_STORAGE_SRCS PREPEND "${MOZC_SRC_DIR}/storage/")
-
-add_library(mozc_storage OBJECT ${MOZC_STORAGE_SRCS})
-
-target_include_directories(mozc_storage PRIVATE
-    "${MOZC_SRC_DIR}"
-    "${MOZC_SRC_DIR}/third_party/abseil-cpp"
-)

@@ -41,11 +41,3 @@ foreach(PROTO_SRC ${PROTO_SRCS})
     endif()
     add_dependencies(gen ${target_name})
 endforeach()
-
-add_library(mozc_proto OBJECT ${GENERATED_PROTO_SRCS})
-target_include_directories(mozc_proto PRIVATE
-    "${PROJECT_BINARY_DIR}"
-    "${MOZC_SRC_DIR}"
-    "${MOZC_SRC_DIR}/third_party/protobuf/src"
-    "${MOZC_SRC_DIR}/third_party/abseil-cpp"
-)

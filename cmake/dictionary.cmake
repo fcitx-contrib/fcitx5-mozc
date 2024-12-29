@@ -43,12 +43,3 @@ set(MOZC_DICTIONARY_SRCS
     user_pos.cc
 )
 list(TRANSFORM MOZC_DICTIONARY_SRCS PREPEND "${MOZC_SRC_DIR}/dictionary/")
-
-add_library(mozc_dictionary OBJECT ${MOZC_DICTIONARY_SRCS})
-
-target_include_directories(mozc_dictionary PRIVATE
-    "${MOZC_SRC_DIR}"
-    "${MOZC_SRC_DIR}/third_party/abseil-cpp"
-    "${MOZC_SRC_DIR}/third_party/protobuf/src"
-    "${PROJECT_BINARY_DIR}"
-)

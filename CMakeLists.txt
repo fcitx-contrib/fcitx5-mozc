@@ -20,9 +20,6 @@ if (NOT DEFINED MOZC_TARGET)
     set(protobuf_BUILD_LIBPROTOC ON)
     add_subdirectory("${MOZC_SRC_DIR}/third_party/protobuf")
 
-    # Mozc requires char to be unsigned, as it's used as array index.
-    add_compile_options(-funsigned-char)
-
     include(cmake/protobuf.cmake)
     include(cmake/base.cmake)
     include(cmake/composer.cmake)
@@ -50,20 +47,6 @@ if (NOT DEFINED MOZC_TARGET)
         gen_stats_list
         gen_version_def
     )
-
-    add_dependencies(mozc_proto gen)
-    add_dependencies(mozc_composer gen)
-    add_dependencies(mozc_config gen)
-    add_dependencies(mozc_converter gen)
-    add_dependencies(mozc_data_manager gen)
-    add_dependencies(mozc_dictionary gen)
-    add_dependencies(mozc_engine gen)
-    add_dependencies(mozc_prediction gen)
-    add_dependencies(mozc_rewriter gen)
-    add_dependencies(mozc_session gen)
-    add_dependencies(mozc_storage gen)
-    add_dependencies(mozc_transliteration gen)
-    add_dependencies(mozc_usage_stats gen)
 endif()
 
 if (BUILD_MOZC_ADDON)

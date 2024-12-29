@@ -37,12 +37,3 @@ set(MOZC_REWRITER_SRCS
     zipcode_rewriter.cc
 )
 list(TRANSFORM MOZC_REWRITER_SRCS PREPEND "${MOZC_SRC_DIR}/rewriter/")
-
-add_library(mozc_rewriter OBJECT ${MOZC_REWRITER_SRCS})
-
-target_include_directories(mozc_rewriter PRIVATE
-    "${MOZC_SRC_DIR}"
-    "${MOZC_SRC_DIR}/third_party/abseil-cpp"
-    "${MOZC_SRC_DIR}/third_party/protobuf/src"
-    "${PROJECT_BINARY_DIR}"
-)

@@ -13,14 +13,3 @@ set(MOZC_SESSION_SRCS
     session_usage_stats_util.cc
 )
 list(TRANSFORM MOZC_SESSION_SRCS PREPEND "${MOZC_SRC_DIR}/session/")
-
-add_library(mozc_session OBJECT ${MOZC_SESSION_SRCS})
-
-target_compile_definitions(mozc_session PRIVATE -DMOZC_DISABLE_SESSION_WATCHDOG)
-
-target_include_directories(mozc_session PRIVATE
-    "${MOZC_SRC_DIR}"
-    "${MOZC_SRC_DIR}/third_party/abseil-cpp"
-    "${MOZC_SRC_DIR}/third_party/protobuf/src"
-    "${PROJECT_BINARY_DIR}"
-)
