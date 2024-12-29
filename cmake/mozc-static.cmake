@@ -31,3 +31,5 @@ target_compile_definitions(mozc-static PRIVATE
 )
 
 add_dependencies(mozc-static gen)
+
+install(TARGETS mozc-static DESTINATION "${CMAKE_INSTALL_LIBDIR}")

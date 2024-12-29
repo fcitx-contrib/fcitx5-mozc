@@ -9,6 +9,7 @@ add_custom_command(
 )
 
 add_custom_target(gen_pos_matcher_impl_inc DEPENDS "${pos_matcher_impl_inc}")
+install(FILES "${pos_matcher_impl_inc}" DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/mozc/dictionary")
 
 # Generate pos_map.inc
 set(pos_map_inc "${PROJECT_BINARY_DIR}/dictionary/pos_map.inc")
