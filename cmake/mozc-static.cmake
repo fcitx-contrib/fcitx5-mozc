@@ -27,6 +27,10 @@ target_compile_options(mozc-static PRIVATE -funsigned-char)
 
 target_compile_definitions(mozc-static PRIVATE
     -DMOZC_DATASET_MAGIC_NUMBER_LENGTH=7
+)
+
+# fcitx5-mozc references session_handler.h.
+target_compile_definitions(mozc-static PUBLIC
     -DMOZC_DISABLE_SESSION_WATCHDOG
 )
 

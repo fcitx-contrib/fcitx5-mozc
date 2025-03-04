@@ -1,4 +1,5 @@
 set(MOZC_CONVERTER_SRCS
+    candidate.cc    
     candidate_filter.cc
     connector.cc
     converter.cc
@@ -7,7 +8,6 @@ set(MOZC_CONVERTER_SRCS
     key_corrector.cc
     lattice.cc
     nbest_generator.cc
-    node_list_builder.cc
     reverse_converter.cc
     segmenter.cc
     segments.cc

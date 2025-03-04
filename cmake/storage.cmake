@@ -6,7 +6,5 @@ set(MOZC_STORAGE_SRCS
     louds/louds_trie.cc
     louds/simple_succinct_bit_vector_index.cc
     lru_storage.cc
-    registry.cc
-    tiny_storage.cc
 )
 list(TRANSFORM MOZC_STORAGE_SRCS PREPEND "${MOZC_SRC_DIR}/storage/")

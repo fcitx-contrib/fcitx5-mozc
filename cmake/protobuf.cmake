@@ -20,7 +20,6 @@ set(PROTO_SRCS
     protocol/segmenter_data
     protocol/state
     protocol/user_dictionary_storage
-    usage_stats/usage_stats
 )
 list(TRANSFORM PROTO_SRCS APPEND ".pb.cc" OUTPUT_VARIABLE GENERATED_PROTO_SRCS)
 list(TRANSFORM GENERATED_PROTO_SRCS PREPEND "${PROJECT_BINARY_DIR}/")

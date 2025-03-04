@@ -37,7 +37,6 @@ if (NOT DEFINED MOZC_TARGET)
     include(cmake/session.cmake)
     include(cmake/storage.cmake)
     include(cmake/transliteration.cmake)
-    include(cmake/usage_stats.cmake)
 
     include(cmake/mozc-static.cmake)
     set(MOZC_TARGET
@@ -53,7 +52,6 @@ if (NOT DEFINED MOZC_TARGET)
         gen_config_file_stream_data
         gen_pos_matcher_code
         gen_pos_matcher_impl_inc
-        gen_stats_list
         gen_version_def
     )
 endif()
