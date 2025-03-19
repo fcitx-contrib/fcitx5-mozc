@@ -1,11 +1,11 @@
 set(MOZC_COMPOSER_SRCS
+    char_chunk.cc    
     composer.cc
-    internal/char_chunk.cc
-    internal/composition.cc
-    internal/composition_input.cc
-    internal/mode_switching_handler.cc
-    internal/special_key.cc
-    internal/transliterators.cc
+    composition.cc
+    composition_input.cc
+    mode_switching_handler.cc
+    special_key.cc
+    transliterators.cc
     key_event_util.cc
     key_parser.cc
     table.cc
