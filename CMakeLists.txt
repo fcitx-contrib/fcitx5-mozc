@@ -6,7 +6,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 option(BUILD_MOZC_ADDON "Build Mozc Fcitx5 Addon" ON)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 add_compile_options(-fPIC)
 
 set(MOZC_SRC_DIR "${PROJECT_SOURCE_DIR}/mozc/src")

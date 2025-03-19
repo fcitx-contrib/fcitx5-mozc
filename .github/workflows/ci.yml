@@ -10,9 +10,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: archlinux:latest
+    env:
+      CC: clang
+      CXX: clang++
     steps:
       - name: Install dependencies
-        run: pacman -Syu --noconfirm base-devel cmake ninja extra-cmake-modules fmt libuv git python
+        run: pacman -Syu --noconfirm base-devel cmake clang ninja extra-cmake-modules fmt libuv git python
 
       - uses: actions/checkout@v4
         with:
