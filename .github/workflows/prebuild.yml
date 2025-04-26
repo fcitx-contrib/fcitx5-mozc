@@ -29,7 +29,7 @@ jobs:
           cd mozc/src
           # Accelerate build by removing irrelevant compilers.
           pushd third_party/protobuf
-          git apply ../../../../patches/protobuf.patch || true # But if failed just discard.
+          git apply ../../../../patches/protobuf.patch
           popd
           chown -R builduser:builduser .
           sudo -u builduser bazel build --config oss_linux --host_cxxopt=-Wno-uninitialized //data_manager/oss:mozc_data.inc
