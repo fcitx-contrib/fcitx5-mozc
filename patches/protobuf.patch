@@ -1,3 +1,16 @@
+diff --git a/cmake/libprotoc.cmake b/cmake/libprotoc.cmake
+index 1fd275d5a..38a67aa53 100644
+--- a/cmake/libprotoc.cmake
++++ b/cmake/libprotoc.cmake
+@@ -17,7 +17,7 @@ if(protobuf_HAVE_LD_VERSION_SCRIPT)
+     LINK_DEPENDS ${protobuf_SOURCE_DIR}/src/libprotoc.map)
+ endif()
+ target_link_libraries(libprotoc PRIVATE libprotobuf)
+-target_link_libraries(libprotoc PUBLIC libupb ${protobuf_ABSL_USED_TARGETS})
++target_link_libraries(libprotoc PUBLIC ${protobuf_ABSL_USED_TARGETS})
+ protobuf_configure_target(libprotoc)
+ if(protobuf_BUILD_SHARED_LIBS)
+   target_compile_definitions(libprotoc
 diff --git a/src/file_lists.cmake b/src/file_lists.cmake
 index e798ad903..f35f44ed3 100644
 --- a/src/file_lists.cmake
