@@ -4,6 +4,7 @@ set(MOZC_PREDICTION_SRCS
     number_decoder.cc
     predictor.cc
     result.cc
+    result_filter.cc
     single_kanji_prediction_aggregator.cc
     suggestion_filter.cc
     user_history_predictor.cc
