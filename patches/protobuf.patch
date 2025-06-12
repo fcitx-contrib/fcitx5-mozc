@@ -1,8 +1,8 @@
 diff --git a/src/file_lists.cmake b/src/file_lists.cmake
-index 104a296d1..68758b844 100644
+index e798ad903..f35f44ed3 100644
 --- a/src/file_lists.cmake
 +++ b/src/file_lists.cmake
-@@ -312,108 +312,9 @@ set(libprotoc_srcs
+@@ -381,120 +381,12 @@ set(libprotoc_srcs
    ${protobuf_SOURCE_DIR}/src/google/protobuf/compiler/cpp/parse_function_generator.cc
    ${protobuf_SOURCE_DIR}/src/google/protobuf/compiler/cpp/service.cc
    ${protobuf_SOURCE_DIR}/src/google/protobuf/compiler/cpp/tracker.cc
@@ -58,6 +58,7 @@ index 104a296d1..68758b844 100644
 -  ${protobuf_SOURCE_DIR}/src/google/protobuf/compiler/java/name_resolver.cc
 -  ${protobuf_SOURCE_DIR}/src/google/protobuf/compiler/java/names.cc
 -  ${protobuf_SOURCE_DIR}/src/google/protobuf/compiler/java/shared_code_generator.cc
+-  ${protobuf_SOURCE_DIR}/src/google/protobuf/compiler/kotlin/field.cc
 -  ${protobuf_SOURCE_DIR}/src/google/protobuf/compiler/kotlin/file.cc
 -  ${protobuf_SOURCE_DIR}/src/google/protobuf/compiler/kotlin/generator.cc
 -  ${protobuf_SOURCE_DIR}/src/google/protobuf/compiler/kotlin/message.cc
@@ -111,11 +112,22 @@ index 104a296d1..68758b844 100644
    ${protobuf_SOURCE_DIR}/src/google/protobuf/compiler/subprocess.cc
    ${protobuf_SOURCE_DIR}/src/google/protobuf/compiler/versions.cc
    ${protobuf_SOURCE_DIR}/src/google/protobuf/compiler/zip_writer.cc
+-  ${protobuf_SOURCE_DIR}/upb_generator/common.cc
+-  ${protobuf_SOURCE_DIR}/upb_generator/common/names.cc
+-  ${protobuf_SOURCE_DIR}/upb_generator/file_layout.cc
+-  ${protobuf_SOURCE_DIR}/upb_generator/minitable/fasttable.cc
+-  ${protobuf_SOURCE_DIR}/upb_generator/minitable/generator.cc
+-  ${protobuf_SOURCE_DIR}/upb_generator/minitable/names.cc
+-  ${protobuf_SOURCE_DIR}/upb_generator/minitable/names_internal.cc
+-  ${protobuf_SOURCE_DIR}/upb_generator/plugin.cc
+ )
+ 
+ # @//pkg:protoc
 diff --git a/src/google/protobuf/compiler/BUILD.bazel b/src/google/protobuf/compiler/BUILD.bazel
-index 5012ee793..80c90784b 100644
+index d310bbae3..07edfc1ef 100644
 --- a/src/google/protobuf/compiler/BUILD.bazel
 +++ b/src/google/protobuf/compiler/BUILD.bazel
-@@ -221,14 +221,6 @@ cc_library(
+@@ -235,14 +235,6 @@ bootstrap_cc_library(
          "//src/google/protobuf",
          "//src/google/protobuf:port",
          "//src/google/protobuf/compiler/cpp",
@@ -127,11 +139,11 @@ index 5012ee793..80c90784b 100644
 -        "//src/google/protobuf/compiler/python",
 -        "//src/google/protobuf/compiler/ruby",
 -        "//src/google/protobuf/compiler/rust",
-         "@com_google_absl//absl/log:initialize",
+         "@abseil-cpp//absl/log:initialize",
      ],
  )
 diff --git a/src/google/protobuf/compiler/main.cc b/src/google/protobuf/compiler/main.cc
-index babede8fa..97a39424a 100644
+index 6ffff719f..c18b6a09f 100644
 --- a/src/google/protobuf/compiler/main.cc
 +++ b/src/google/protobuf/compiler/main.cc
 @@ -8,6 +8,7 @@
@@ -142,15 +154,15 @@ index babede8fa..97a39424a 100644
  #include "google/protobuf/compiler/csharp/csharp_generator.h"
  #include "google/protobuf/compiler/java/generator.h"
  #include "google/protobuf/compiler/kotlin/generator.h"
-@@ -17,6 +18,7 @@
- #include "google/protobuf/compiler/python/pyi_generator.h"
+@@ -18,6 +19,7 @@
  #include "google/protobuf/compiler/ruby/ruby_generator.h"
  #include "google/protobuf/compiler/rust/generator.h"
+ #include "upb_generator/minitable/generator.h"
 +#endif
  
  #ifdef DISABLE_PROTOC_CONFIG
  #include "google/protobuf/compiler/allowlists/allowlist.h"
-@@ -53,6 +55,7 @@ int ProtobufMain(int argc, char* argv[]) {
+@@ -54,6 +56,7 @@ int ProtobufMain(int argc, char* argv[]) {
    cpp_generator.set_runtime_include_base(GOOGLE_PROTOBUF_RUNTIME_INCLUDE_BASE);
  #endif
  
@@ -158,10 +170,10 @@ index babede8fa..97a39424a 100644
    // Proto2 Java
    java::JavaGenerator java_generator;
    cli.RegisterGenerator("--java_out", "--java_opt", &java_generator,
-@@ -106,6 +109,7 @@ int ProtobufMain(int argc, char* argv[]) {
-   rust::RustGenerator rust_generator;
-   cli.RegisterGenerator("--rust_out", "--rust_opt", &rust_generator,
-                         "Generate Rust sources.");
+@@ -112,6 +115,7 @@ int ProtobufMain(int argc, char* argv[]) {
+   upb::generator::MiniTableGenerator minitable_generator;
+   cli.RegisterGenerator("--upb_minitable_out", "--upb_minitable_opt",
+                         &minitable_generator, "Generate upb minitables");
 +#endif
  #ifdef DISABLE_PROTOC_CONFIG
    auto cleanup = internal::DisableAllowlistInternalOnly();
