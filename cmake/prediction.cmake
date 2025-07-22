@@ -3,9 +3,10 @@ set(MOZC_PREDICTION_SRCS
     dictionary_predictor.cc
     number_decoder.cc
     predictor.cc
+    realtime_decoder.cc
     result.cc
     result_filter.cc
-    single_kanji_prediction_aggregator.cc
+    single_kanji_decoder.cc
     suggestion_filter.cc
     user_history_predictor.cc
 )
