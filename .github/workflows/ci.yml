@@ -5,6 +5,7 @@ on:
     branches:
       - master
   pull_request:
+  workflow_dispatch: # Run it if sync doesn't update fcitx5 part (i.e. only updates google/mozc)
 
 jobs:
   build:
