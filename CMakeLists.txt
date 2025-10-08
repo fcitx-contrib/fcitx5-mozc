@@ -48,7 +48,6 @@ if (NOT DEFINED MOZC_TARGET)
 
     # Force data generation before binary build
     add_dependencies(gen
-        gen_character_set
         gen_config_file_stream_data
         gen_pos_matcher_code
         gen_pos_matcher_impl_inc
