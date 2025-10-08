@@ -1,15 +1,3 @@
-# Generate character_set.inc
-set(character_set_inc "${PROJECT_BINARY_DIR}/base/character_set.inc")
-
-add_custom_command(
-    OUTPUT "${character_set_inc}"
-    COMMAND python "${MOZC_SRC_DIR}/base/gen_character_set.py" --jisx0201file JIS0201.TXT --jisx0208file JIS0208.TXT --output "${character_set_inc}"
-    WORKING_DIRECTORY "${MOZC_SRC_DIR}/data/unicode"
-    COMMENT "Generating character_set.inc"
-)
-
-add_custom_target(gen_character_set DEPENDS "${character_set_inc}")
-
 # Generate config_file_stream_data.inc
 set(config_file_stream_data_inc "${PROJECT_BINARY_DIR}/base/config_file_stream_data.inc")
 
