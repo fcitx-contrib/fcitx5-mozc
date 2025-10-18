@@ -6,6 +6,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 option(BUILD_MOZC_ADDON "Build Mozc Fcitx5 Addon" ON)
 
+include(GNUInstallDirs)
 set(CMAKE_CXX_STANDARD 20)
 add_compile_options(-fPIC)
 
