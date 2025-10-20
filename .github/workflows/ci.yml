@@ -18,11 +18,11 @@ jobs:
       - name: Install dependencies
         run: pacman -Syu --noconfirm base-devel cmake clang ninja extra-cmake-modules fmt libuv git python
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           path: fcitx5-mozc
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           repository: google/mozc
           path: fcitx5-mozc/mozc
@@ -37,7 +37,7 @@ jobs:
           mkdir -p build/data_manager/oss
           curl -LO --output-dir build/data_manager/oss https://github.com/fcitx-contrib/fcitx5-mozc/releases/download/latest/mozc_data.inc
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           repository: fcitx/fcitx5
           path: fcitx5
