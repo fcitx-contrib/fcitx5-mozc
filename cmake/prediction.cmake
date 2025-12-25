@@ -9,5 +9,6 @@ set(MOZC_PREDICTION_SRCS
     single_kanji_decoder.cc
     suggestion_filter.cc
     user_history_predictor.cc
+    user_history_storage.cc
 )
 list(TRANSFORM MOZC_PREDICTION_SRCS PREPEND "${MOZC_SRC_DIR}/prediction/")
