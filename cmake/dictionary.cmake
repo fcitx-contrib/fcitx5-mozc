@@ -36,8 +36,6 @@ set(MOZC_DICTIONARY_SRCS
     system/value_dictionary.cc
     user_dictionary.cc
     user_dictionary_importer.cc
-    user_dictionary_session.cc
-    user_dictionary_session_handler.cc
     user_dictionary_storage.cc
     user_dictionary_util.cc
     user_pos.cc
