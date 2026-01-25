@@ -14,7 +14,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pacman -Syu --noconfirm base-devel git bazel python
+          pacman -Syu --noconfirm base-devel git python
+          curl -L -o /usr/local/bin/bazel https://github.com/bazelbuild/bazel/releases/download/8.5.1/bazel-8.5.1-linux-x86_64 # pin bazel 8.5.1
 
       - uses: actions/checkout@v6
         with:
