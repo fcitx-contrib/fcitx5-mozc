@@ -1,7 +1,7 @@
 # You should set PROTOC_EXECUTABLE to native protoc when cross-build.
 if (NOT PROTOC_EXECUTABLE)
     if (APPLE)
-        install(TARGETS protoc DESTINATION "${CMAKE_INSTALL_BINDIR}" RENAME protoc) # iOS needs it.
+        install(TARGETS protoc DESTINATION "${CMAKE_INSTALL_BINDIR}") # iOS needs it.
     endif()
     set(PROTOC_EXECUTABLE "$<TARGET_FILE:protoc>")
 endif()
