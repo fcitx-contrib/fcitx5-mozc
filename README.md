@@ -1,9 +1,6 @@
 # Fcitx5 Mozc
 
-The repo aims to
-
-* Use CMake to build [original project](https://github.com/fcitx/mozc) so that it can be integrated into other platforms more easily.
-* Avoid [mozc](https://github.com/google/mozc)'s huge git history when building.
+The repo aims to use CMake to build [original project](https://github.com/fcitx/mozc) so that it can be integrated into other platforms more easily.
 
 It is initially created by
 

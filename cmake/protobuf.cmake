@@ -1,12 +1,9 @@
 # You should set PROTOC_EXECUTABLE to native protoc when cross-build.
 if (NOT PROTOC_EXECUTABLE)
-    add_executable(protoc "${MOZC_SRC_DIR}/protobuf/custom_protoc_main.cc")
-    target_include_directories(protoc PRIVATE "${MOZC_SRC_DIR}/third_party/protobuf/src")
-    target_link_libraries(protoc libprotoc)
     if (APPLE)
-        install(TARGETS protoc DESTINATION "${CMAKE_INSTALL_BINDIR}") # iOS needs it.
+        install(TARGETS protoc DESTINATION "${CMAKE_INSTALL_BINDIR}" RENAME protoc) # iOS needs it.
     endif()
-    set(PROTOC_EXECUTABLE "${PROJECT_BINARY_DIR}/protoc")
+    set(PROTOC_EXECUTABLE "$<TARGET_FILE:protoc>")
 endif()
 
 add_custom_target(gen) # Dummy target to force data generation before binary build

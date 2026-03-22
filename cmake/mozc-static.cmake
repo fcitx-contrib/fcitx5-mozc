@@ -17,8 +17,8 @@ add_library(mozc-static STATIC
 
 target_include_directories(mozc-static PRIVATE
     "${MOZC_SRC_DIR}"
-    "${MOZC_SRC_DIR}/third_party/abseil-cpp"
-    "${MOZC_SRC_DIR}/third_party/protobuf/src"
+    "abseil-cpp"
+    "protobuf/src"
     "${PROJECT_BINARY_DIR}"
 )
 

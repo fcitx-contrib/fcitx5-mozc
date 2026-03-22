@@ -3,6 +3,7 @@
   "extends": [
     "config:recommended"
   ],
+  "ignoreDeps": ["abseil-cpp", "protobuf"],
   "git-submodules": {
     "enabled": true
   }
