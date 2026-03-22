@@ -26,7 +26,7 @@ jobs:
       - name: Patch
         working-directory: fcitx5-mozc
         run: |
-          git apply --directory=mozc/src/third_party/protobuf patches/protobuf.patch
+          git apply --directory=protobuf patches/protobuf.patch
           mkdir -p build/data_manager/oss
           curl -LO --output-dir build/data_manager/oss https://github.com/fcitx-contrib/fcitx5-mozc/releases/download/latest/mozc_data.inc
 

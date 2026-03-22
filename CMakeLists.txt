@@ -13,15 +13,13 @@ add_compile_options(-fPIC)
 set(MOZC_SRC_DIR "${PROJECT_SOURCE_DIR}/mozc/src")
 
 if (NOT DEFINED MOZC_TARGET)
-    add_subdirectory("${MOZC_SRC_DIR}/third_party/abseil-cpp")
+    add_subdirectory(abseil-cpp)
     # Not installing as we'll regenerate libabsl.a
 
     set(protobuf_INSTALL OFF)
     set(protobuf_BUILD_TESTS OFF)
-    set(protobuf_BUILD_PROTOC_BINARIES OFF) # We use the one in mozc.
-    set(protobuf_BUILD_LIBPROTOC ON)
     set(protobuf_BUILD_LIBUPB OFF) # No binary for iOS.
-    add_subdirectory("${MOZC_SRC_DIR}/third_party/protobuf")
+    add_subdirectory("protobuf")
     install(TARGETS utf8_validity DESTINATION "${CMAKE_INSTALL_LIBDIR}")
     install(TARGETS libprotobuf DESTINATION "${CMAKE_INSTALL_LIBDIR}")
 

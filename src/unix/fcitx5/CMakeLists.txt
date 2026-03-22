@@ -16,8 +16,8 @@ target_include_directories(mozc PRIVATE
     "${PROJECT_SOURCE_DIR}/src"
     "${MOZC_SRC_DIR}"
     "${PROJECT_BINARY_DIR}"
-    "${MOZC_SRC_DIR}/third_party/protobuf/src"
-    "${MOZC_SRC_DIR}/third_party/abseil-cpp"
+    "protobuf/src"
+    "abseil-cpp"
 )
 
 if (LINUX)

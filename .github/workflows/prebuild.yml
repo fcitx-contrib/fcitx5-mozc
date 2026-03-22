@@ -22,11 +22,14 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Patch
+        run: |
+          # Accelerate build by removing irrelevant compilers.
+          git apply --directory=protobuf patches/protobuf.patch
+
       - name: Build data
         working-directory: mozc/src
         run: |
-          # Accelerate build by removing irrelevant compilers.
-          git apply --directory=third_party/protobuf ../../patches/protobuf.patch
           chown -R builduser:builduser .
           sudo -u builduser bazel build --config oss_linux --host_cxxopt=-Wno-uninitialized //data_manager/oss:mozc_data.inc
 
