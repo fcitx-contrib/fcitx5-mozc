@@ -26,8 +26,6 @@ add_custom_target(gen_pos_matcher_code DEPENDS "${pos_map_inc}")
 set(MOZC_DICTIONARY_SRCS
     dictionary_impl.cc
     file/codec.cc
-    file/codec_factory.cc
-    file/codec_util.cc
     file/dictionary_file.cc
     single_kanji_dictionary.cc
     suffix_dictionary.cc
