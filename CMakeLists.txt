@@ -51,6 +51,7 @@ if (NOT DEFINED MOZC_TARGET)
         gen_pos_matcher_code
         gen_pos_matcher_impl_inc
         gen_version_def
+        gen_pos_cost_map
     )
 endif()
 
