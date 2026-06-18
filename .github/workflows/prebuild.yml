@@ -16,7 +16,7 @@ jobs:
         run: |
           pacman -Syu --noconfirm base-devel git bazel python
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
 
