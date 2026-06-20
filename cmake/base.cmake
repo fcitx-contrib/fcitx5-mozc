@@ -76,7 +76,6 @@ set(MOZC_BASE_SRCS
     password_manager.cc
     process_mutex.cc
     random.cc
-    singleton.cc
     stopwatch.cc
     strings/internal/double_array.cc
     strings/internal/japanese_rules.cc
