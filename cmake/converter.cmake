@@ -3,8 +3,10 @@ set(MOZC_CONVERTER_SRCS
     candidate_filter.cc
     connector.cc
     converter.cc
+    converter_util.cc
     history_reconstructor.cc
     immutable_converter.cc
+    immutable_decoder.cc
     key_corrector.cc
     lattice.cc
     nbest_generator.cc
