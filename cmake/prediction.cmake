@@ -1,4 +1,6 @@
 set(MOZC_PREDICTION_SRCS
+    decoder_util.cc
+    dictionary_decoder.cc
     dictionary_prediction_aggregator.cc
     dictionary_predictor.cc
     english_decoder.cc
