@@ -64,6 +64,7 @@ set(MOZC_BASE_SRCS
     clock.cc
     config_file_stream.cc
     container/serialized_string_array.cc
+    date_util.cc
     encryptor.cc
     environ.cc
     file_stream.cc
@@ -81,6 +82,7 @@ set(MOZC_BASE_SRCS
     strings/internal/japanese_rules.cc
     strings/internal/utf8_internal.cc
     strings/japanese.cc
+    strings/strip.cc
     strings/unicode.cc
     system_util.cc
     text_normalizer.cc

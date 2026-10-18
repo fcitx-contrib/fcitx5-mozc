@@ -46,8 +46,6 @@ set(MOZC_DICTIONARY_SRCS
     system/system_dictionary.cc
     system/value_dictionary.cc
     user_dictionary.cc
-    user_dictionary_importer.cc
-    user_dictionary_storage.cc
     user_dictionary_util.cc
     user_pos.cc
 )
