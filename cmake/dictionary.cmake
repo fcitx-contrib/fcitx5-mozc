@@ -41,7 +41,6 @@ set(MOZC_DICTIONARY_SRCS
     file/dictionary_file.cc
     pos_id_map.cc
     single_kanji_dictionary.cc
-    suffix_dictionary.cc
     system/codec.cc
     system/system_dictionary.cc
     system/value_dictionary.cc
